@@ -1,4 +1,12 @@
 <div *ngIf="employee">
-    <h2>First Name: {{employee.firstName}}</h2>
-    <h2>Last Name: {{employee.lastName}}</h2>
+    <p>First Name: {{employee.firstName}}</p>
+    <p>Last Name: {{employee.lastName}}</p>
+    <p>City: {{employee.address.city}}</p>
+    <p>Email: {{employee.companyEmail}}</p>
+    <p>Skills:</p>
+    <ul>
+        <li *ngFor="let skill of employee.skills">
+            {{skill.field.name}} - {{skill.experience}}yrs
+        </li>
+    </ul>
 </div>

@@ -8,6 +8,7 @@ export interface Employee {
         city: string;
         region: string;
         postal: string;
+        country: string;
     }
     companyEmail: string;
     birthDate: string;
@@ -16,7 +17,7 @@ export interface Employee {
     skills: Skill[];
 }
 
-interface Skill {
+export interface Skill {
     id: string;
     field: {
         id: string;
