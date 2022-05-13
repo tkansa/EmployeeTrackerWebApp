@@ -1,7 +1,23 @@
-<ul>
-    <li *ngFor="let employee of employees">
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Details</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td> <a routerLink="/employee/{{employee.id}}">Details</a></td>
+            <td><button (click)="deleteEmployeeById(employee.id)">X</button></td>
+        </tr>
+    </tbody>
+    <!-- <li *ngFor="let employee of employees">
         {{employee.firstName}} 
         <a routerLink="/employee/{{employee.id}}">Details</a>
         <button (click)="deleteEmployeeById(employee.id)">X</button>
-    </li>
-</ul>
+    </li> -->
+</table>
