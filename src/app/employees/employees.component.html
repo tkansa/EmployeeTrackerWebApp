@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let employee of employees">
+        {{employee.firstName}} 
+        <a routerLink="/employee/{{employee.id}}">Details</a>
+        <button (click)="deleteEmployeeById(employee.id)">X</button>
+    </li>
+</ul>
