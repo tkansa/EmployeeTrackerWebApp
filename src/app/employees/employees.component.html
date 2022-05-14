@@ -12,7 +12,7 @@
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
             <td> <a routerLink="/employee/{{employee.id}}">Details</a></td>
-            <td><button (click)="deleteEmployeeById(employee.id)">X</button></td>
+            <td><button class="delete-btn" (click)="deleteEmployeeById(employee.id)">X</button></td>
         </tr>
     </tbody>
 </table>

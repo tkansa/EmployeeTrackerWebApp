@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     font-family: Arial, Helvetica, sans-serif;padding-left: 20px;
+    background-color: #f9fafc;
 }
 
 th, td {
@@ -42,14 +43,29 @@ button {
     height: 20px;
 }
 
-.add-employee-btn {
+.large-btn {
     width: 200px;
 }
+
+.delete-btn {
+    margin-bottom: 10px;
+}
+
 .perficient-red {
-    color: rgb(247, 14, 14)
+    color: rgb(247, 14, 14);
 }
 
 .employee-form-container {
     display: flex;
+    flex-direction: row;
+}
+.employee-fields-container {
+    display: flex;
     flex-direction: column;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
 }

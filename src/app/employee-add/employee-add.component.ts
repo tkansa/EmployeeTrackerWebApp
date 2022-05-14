@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../interfaces/employee';
+import { Employee, Skill } from '../interfaces/employee';
 import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-add',
@@ -8,7 +9,7 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./employee-add.component.css'],
 })
 export class EmployeeAddComponent implements OnInit {
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService, private router: Router) {}
 
   firstName: string = '';
   lastName: string = '';
@@ -21,12 +22,33 @@ export class EmployeeAddComponent implements OnInit {
   birthDate: string = '';
   hiredDate: string = '';
   role: string = '';
+  name: string = '';
+  type: string = '';
+  experience: number = 0;
+
+  skills: Skill[] = [];
 
   ngOnInit(): void {}
 
+  addSkill(): void {
+    let skill: Skill = {
+      id: '',
+      field: { id: '', name: this.name, type: this.type },
+      experience: this.experience,
+    };
+    this.skills.push(skill);
+    this.name = '';
+    this.type = '';
+    this.experience = 0;
+  }
+
+  deleteSkill(index: number): void {
+    this.skills.splice(index, 1);
+  }
+
   addEmployee(): void {
     let employee: Employee = {
-      id: '',
+      id: null,
       firstName: this.firstName,
       lastName: this.lastName,
       address: {
@@ -41,12 +63,12 @@ export class EmployeeAddComponent implements OnInit {
       birthDate: this.birthDate,
       hiredDate: this.hiredDate,
       role: this.role,
-      skills: [],
+      skills: this.skills,
     };
     this.employeeService.addEmployee(employee).subscribe(
-      (data: Employee) =>
-      console.log(data),
-      error => console.log(error)
-    )
+      (data: Employee) => console.log(data),
+      (error) => console.log(error)
+    );
+    this.router.navigate(['/employees']);
   }
 }

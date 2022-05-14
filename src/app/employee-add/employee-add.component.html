@@ -1,29 +1,50 @@
 <h3>Add an employee to the database:</h3>
 <div class="employee-form-container">
-    <label for="firstName">First Name:</label>
-    <input name="firstName" type="text" [(ngModel)]="firstName">
-    <label for="lastName">Last Name:</label>
-    <input name="lastName" type="text" [(ngModel)]="lastName">
-    <label for="street">Street:</label>
-    <input name="street" type="text" [(ngModel)]="street">
-    <label for="city">City:</label>
-    <input name="city" type="text" [(ngModel)]="city">
-    <label for="region">Region:</label>
-    <input name="region" type="text" [(ngModel)]="region">
-    <label for="postal">Postal Code:</label>
-    <input name="postal" type="text" [(ngModel)]="postal">
-    <label for="country">Country:</label>
-    <input name="country" type="text" [(ngModel)]="country">
-    <label for="birthDate">Birthdate:</label>
-    <input name="birthDate" type="text" [(ngModel)]="birthDate" placeholder="dd/mm/yyyy">
-    <label for="hiredDate">Date Hired:</label>
-    <input name="hireDdate" type="text" [(ngModel)]="hiredDate" placeholder="dd/mm/yyyy">
-    <label for="role">Role:</label>
-    <select name="role" [(ngModel)]="role">
-        <option value="TECHNICAL_CONSULTANT">Technical Consultant</option>
-        <option value="PROJECT_MANAGER">Project Manager</option>
-        <option value="DIRECTOR">Director</option>
-        <option value="CHIEF">Chief</option>
-    </select>
-    <button class="add-employee-btn"(click)="addEmployee()">Save</button>
+    <div class="employee-fields-container">
+        <label for="firstName">First Name:</label>
+        <input name="firstName" type="text" [(ngModel)]="firstName">
+        <label for="lastName">Last Name:</label>
+        <input name="lastName" type="text" [(ngModel)]="lastName">
+        <label for="street">Street:</label>
+        <input name="street" type="text" [(ngModel)]="street">
+        <label for="city">City:</label>
+        <input name="city" type="text" [(ngModel)]="city">
+        <label for="region">Region:</label>
+        <input name="region" type="text" [(ngModel)]="region">
+        <label for="postal">Postal Code:</label>
+        <input name="postal" type="text" [(ngModel)]="postal">
+        <label for="country">Country:</label>
+        <input name="country" type="text" [(ngModel)]="country">
+        <label for="birthDate">Birthdate:</label>
+        <input name="birthDate" type="text" [(ngModel)]="birthDate" placeholder="dd/mm/yyyy">
+        <label for="hiredDate">Date Hired:</label>
+        <input name="hireDdate" type="text" [(ngModel)]="hiredDate" placeholder="dd/mm/yyyy">
+        <label for="role">Role:</label>
+        <select name="role" [(ngModel)]="role">
+            <option value="TECHNICAL_CONSULTANT">Technical Consultant</option>
+            <option value="PROJECT_MANAGER">Project Manager</option>
+            <option value="DIRECTOR">Director</option>
+            <option value="CHIEF">Chief</option>
+        </select>
+        <button class="large-btn" (click)="addEmployee()">Save</button>
+    </div>
+    <div class="skills-container">
+        <label for="name">Skill Name:</label>
+        <input name="name" type="text" [(ngModel)]="name">
+        <label for="type">Skill Type:</label>
+        <input name="type" type="text" [(ngModel)]="type">
+        <label for="experience">Years Experience:</label>
+        <input name="experience" type="number" [(ngModel)]="experience">
+        <button class="large-btn" (click)="addSkill()">Add a Skill</button>
+        <ul *ngIf="skills">
+        </ul>
+        <table *ngIf="skills">
+            <tr *ngFor="let skill of skills; index as i">
+                <td>{{skill.field.name}}</td>
+                <td>{{skill.field.type}}</td>
+                <td>{{skill.experience}}</td>
+                <td><button class="delete-btn" (click)="deleteSkill(i)">X</button></td> 
+            </tr>
+        </table>
+    </div>
 </div>
