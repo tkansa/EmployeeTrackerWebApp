@@ -4,6 +4,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Details</th>
+            <th>Edit</th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -12,6 +13,7 @@
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
             <td> <a routerLink="/employee/{{employee.id}}">Details</a></td>
+            <td> <a routerLink="/employee/edit/{{employee.id}}">Edit</a></td>
             <td><button class="delete-btn" (click)="deleteEmployeeById(employee.id)">X</button></td>
         </tr>
     </tbody>

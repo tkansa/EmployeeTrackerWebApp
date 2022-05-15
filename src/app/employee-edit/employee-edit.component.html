@@ -1,34 +1,34 @@
-<h3>Add an employee to the database:</h3>
+<h3>Edit the employee details:</h3>
 <div class="employee-form-container">
     <div class="employee-fields-container">
         <label for="firstName">First Name:</label>
-        <input name="firstName" type="text" [(ngModel)]="firstName">
+        <input name="firstName" type="text" [(ngModel)]="employee.firstName">
         <label for="lastName">Last Name:</label>
-        <input name="lastName" type="text" [(ngModel)]="lastName">
+        <input name="lastName" type="text" [(ngModel)]="employee.lastName">
         <label for="street">Street:</label>
-        <input name="street" type="text" [(ngModel)]="street">
+        <input name="street" type="text" [(ngModel)]="employee.address.street">
         <label for="city">City:</label>
-        <input name="city" type="text" [(ngModel)]="city">
+        <input name="city" type="text" [(ngModel)]="employee.address.city">
         <label for="region">Region:</label>
-        <input name="region" type="text" [(ngModel)]="region">
+        <input name="region" type="text" [(ngModel)]="employee.address.region">
         <label for="postal">Postal Code:</label>
-        <input name="postal" type="text" [(ngModel)]="postal">
+        <input name="postal" type="text" [(ngModel)]="employee.address.postal">
         <label for="country">Country:</label>
-        <input name="country" type="text" [(ngModel)]="country">
+        <input name="country" type="text" [(ngModel)]="employee.address.country">
         <label for="companyEmail">Company Email:</label>
-        <input name="companyEmail" type="text" [(ngModel)]="companyEmail">
+        <input name="companyEmail" type="text" [(ngModel)]="employee.companyEmail">
         <label for="birthDate">Birthdate:</label>
-        <input name="birthDate" type="text" [(ngModel)]="birthDate" placeholder="dd/mm/yyyy">
+        <input name="birthDate" type="text" [(ngModel)]="employee.birthDate" placeholder="dd/mm/yyyy">
         <label for="hiredDate">Date Hired:</label>
-        <input name="hireDdate" type="text" [(ngModel)]="hiredDate" placeholder="dd/mm/yyyy">
+        <input name="hireDdate" type="text" [(ngModel)]="employee.hiredDate" placeholder="dd/mm/yyyy">
         <label for="role">Role:</label>
-        <select name="role" [(ngModel)]="role">
+        <select name="role" [(ngModel)]="employee.role">
             <option value="TECHNICAL_CONSULTANT">Technical Consultant</option>
             <option value="PROJECT_MANAGER">Project Manager</option>
             <option value="DIRECTOR">Director</option>
             <option value="CHIEF">Chief</option>
         </select>
-        <button class="large-btn" (click)="addEmployee()">Save</button>
+        <button class="large-btn" (click)="editEmployee()">Save</button>
     </div>
     <div class="skills-container">
         <label for="name">Skill Name:</label>
@@ -38,10 +38,8 @@
         <label for="experience">Years Experience:</label>
         <input name="experience" type="number" [(ngModel)]="experience">
         <button class="large-btn" (click)="addSkill()">Add a Skill</button>
-        <ul *ngIf="skills">
-        </ul>
-        <table *ngIf="skills">
-            <tr *ngFor="let skill of skills; index as i">
+        <table *ngIf="employee.skills">
+            <tr *ngFor="let skill of employee.skills; index as i">
                 <td>{{skill.field.name}}</td>
                 <td>{{skill.field.type}}</td>
                 <td>{{skill.experience}}</td>

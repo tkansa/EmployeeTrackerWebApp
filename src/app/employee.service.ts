@@ -29,6 +29,10 @@ export class EmployeeService {
     return this.httpClient.post<Employee>(this.apiUrl, employee, this.httpOptions);
   }
 
+  editEmployeeById(employee: Employee): Observable<Employee> {
+    return this.httpClient.put<Employee>(this.apiUrl + "/" + employee.id, employee, this.httpOptions);
+  }
+
   deleteEmployeeById(id: string): Observable<Employee> {
     return this.httpClient.delete<Employee>(this.apiUrl + "/" + id, this.httpOptions);
   }
