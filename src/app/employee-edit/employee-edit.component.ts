@@ -16,6 +16,7 @@ export class EmployeeEditComponent implements OnInit {
   name: string = '';
   type: string = '';
   experience: number = 0;
+  message: string;
 
   constructor(private employeeService: EmployeeService, private route: ActivatedRoute, private router: Router) { }
 
@@ -49,7 +50,7 @@ export class EmployeeEditComponent implements OnInit {
       (data: Employee) => console.log(data),
       (error) => console.log(error)
     );
-    this.router.navigate(['/employees']);
+    this.message = this.employee.firstName + " was updated!"
   }
 
 }

@@ -25,8 +25,8 @@ export class EmployeeAddComponent implements OnInit {
   name: string = '';
   type: string = '';
   experience: number = 0;
-
   skills: Skill[] = [];
+  message: string;
 
   ngOnInit(): void {}
 
@@ -69,6 +69,17 @@ export class EmployeeAddComponent implements OnInit {
       (data: Employee) => console.log(data),
       (error) => console.log(error)
     );
-    this.router.navigate(['/employees']);
+    this.message = this.firstName + " was added!";
+    this.firstName = '';
+    this.lastName = '';
+    this.street = '';
+    this.city = '';
+    this.region = '';
+    this.country = '';
+    this.companyEmail = '';
+    this.birthDate = '';
+    this.hiredDate = '';
+    this.role = '';
+    this.skills = [];
   }
 }
